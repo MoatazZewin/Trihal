@@ -47,7 +47,7 @@
                 android:layout_marginTop="@dimen/loginViewsMargin">
 
                 <EditText
-                    android:id="@+id/editTextEmail"
+                    android:id="@+id/edTxtEmailrregist"
                     style="@style/modifiedEditText"
                     android:hint="@string/login_email_hint"
                     android:inputType="textEmailAddress"
@@ -62,7 +62,7 @@
                 android:layout_marginTop="@dimen/loginViewsMargin">
 
                 <EditText
-                    android:id="@+id/editTextPassword"
+                    android:id="@+id/edTxtPasswordregi"
                     style="@style/modifiedEditText"
                     android:hint="@string/login_password_hint"
                     android:inputType="textPassword"
@@ -80,7 +80,7 @@
             x
 
             <Button
-                android:id="@+id/cirLoginButton"
+                android:id="@+id/btn_login"
                 style="@style/loginButton"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/loginViewsMargin"

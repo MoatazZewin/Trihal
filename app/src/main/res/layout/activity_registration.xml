@@ -25,14 +25,14 @@
 
     -<com.google.android.material.textfield.TextInputLayout android:layout_marginTop="@dimen/loginViewsMargin" style="@style/parent" android:id="@+id/textInputName">
 
-    <EditText style="@style/modifiedEditText" android:id="@+id/editTextName" android:maxLines="1" android:inputType="textPersonName" android:hint="Name"/>
+    <EditText style="@style/modifiedEditText" android:id="@+id/editTextNameRegister" android:maxLines="1" android:inputType="textPersonName" android:hint="Name"/>
 
 </com.google.android.material.textfield.TextInputLayout>
 
 
     -<com.google.android.material.textfield.TextInputLayout android:layout_marginTop="@dimen/loginViewsMargin" style="@style/parent" android:id="@+id/textInputEmail">
 
-    <EditText style="@style/modifiedEditText" android:id="@+id/editTextEmail" android:maxLines="1" android:inputType="textEmailAddress" android:hint="@string/login_email_hint"/>
+    <EditText style="@style/modifiedEditText" android:id="@+id/edTxtEmailrregist" android:maxLines="1" android:inputType="textEmailAddress" android:hint="@string/login_email_hint"/>
 
 </com.google.android.material.textfield.TextInputLayout>
 
@@ -46,16 +46,16 @@
 
     -<com.google.android.material.textfield.TextInputLayout android:layout_marginTop="@dimen/loginViewsMargin" style="@style/parent" android:id="@+id/textInputPassword">
 
-    <EditText style="@style/modifiedEditText" android:id="@+id/editTextPassword" android:maxLines="1" android:inputType="textPassword" android:hint="@string/login_password_hint"/>
+    <EditText style="@style/modifiedEditText" android:id="@+id/edTxtPasswordregi" android:maxLines="1" android:inputType="textPassword" android:hint="@string/login_password_hint"/>
 
 </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/cirLoginButton"
+        android:id="@+id/btn_login"
         style="@style/loginButton"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/loginViewsMargin"
-        android:text="Register"
+        android:text="@string/register"
         app:initialCornerAngle="27dp"
         app:spinning_bar_color="#FFF"
         app:spinning_bar_padding="6dp"

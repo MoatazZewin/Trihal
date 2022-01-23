@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "474584221595",
+    "project_id": "tirhal-7c919",
+    "storage_bucket": "tirhal-7c919.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:474584221595:android:ac570a68e7bf3fa63fc33e",
+        "android_client_info": {
+          "package_name": "com.example.tirhal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "474584221595-e5upr6211n7l2r10spf3g79rj9dtmdjn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tirhal",
+            "certificate_hash": "94345cd41db78dac80c5b487111784108d4d61a5"
+          }
+        },
+        {
+          "client_id": "474584221595-bhm4h0ecq0nr736o4imsp8igungonopq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCD986wvRhGqtUaxNH4TDsadviEOkMMyXA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "474584221595-bhm4h0ecq0nr736o4imsp8igungonopq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

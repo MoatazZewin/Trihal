@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class SplashActivity extends AppCompatActivity {
     private static int SPLASH_SCREEN = 5000;
 Animation topAnim,buttonAnim;
 ImageView image;
@@ -21,7 +21,7 @@ TextView logo,slogan;
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_mainsplash);
     topAnim = AnimationUtils.loadAnimation(this ,R.anim.top_animation);
         buttonAnim = AnimationUtils.loadAnimation(this ,R.anim.button_animation);
 
@@ -34,7 +34,7 @@ TextView logo,slogan;
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent=new Intent(MainActivity.this,LoginActivity2.class);
+                Intent intent=new Intent(SplashActivity.this,LoginActivity2.class);
                 startActivity(intent);
                 finish();
             }

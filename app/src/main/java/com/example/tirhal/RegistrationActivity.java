@@ -92,12 +92,9 @@ public class RegistrationActivity extends AppCompatActivity {
         }
     }
 
-    public void onLoginClick(View view){
-        startActivity(new Intent(this,LoginActivity2.class));
-        overridePendingTransition(R.anim.slide_in_left,android.R.anim.slide_out_right);
-
+    public void onLoginClick(View view) {
+        startActivity(new Intent(this, FragmentMainActivity.class));
+        overridePendingTransition(R.anim.slide_in_left, android.R.anim.slide_out_right);
     }
-
-
 
 }

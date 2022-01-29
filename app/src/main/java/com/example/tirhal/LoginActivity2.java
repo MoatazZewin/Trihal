@@ -26,6 +26,7 @@ public class LoginActivity2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         //for changing status bar icon colors
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
@@ -63,7 +64,7 @@ public class LoginActivity2 extends AppCompatActivity {
                     if(task.isSuccessful())
                     {
                         Toast.makeText(LoginActivity2.this, "user Login successfully", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(LoginActivity2.this,HomeActivity.class));
+                        startActivity(new Intent(LoginActivity2.this,FragmentMainActivity.class));
                     }else
                     {
                         Toast.makeText(LoginActivity2.this, "login Error"+ task.getException().getMessage(), Toast.LENGTH_SHORT).show();
@@ -78,6 +79,12 @@ public class LoginActivity2 extends AppCompatActivity {
         overridePendingTransition(R.anim.slide_in_right, R.anim.stay);
 
     }
+    public void onLoginClick2(View view)
+    {
+        startActivity(new Intent(this, FragmentMainActivity.class));
+
+    }
+
 
 /* <item name="colorPrimary">@color/pu</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>

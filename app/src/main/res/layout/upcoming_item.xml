@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        style="@style/TextAppearance.Compat.Notification.Info"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <EditText
+                android:id="@+id/timeLbl"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="20dp"
+                android:text=""
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/time"
+                app:layout_constraintTop_toBottomOf="@+id/nameLable" />
+
+            <EditText
+                android:id="@+id/typeLbl"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text=""
+
+                app:layout_constraintEnd_toEndOf="@+id/timeLbl"
+                app:layout_constraintStart_toStartOf="@+id/timeLbl"
+                app:layout_constraintTop_toBottomOf="@+id/timeLbl" />
+
+            <EditText
+                android:id="@+id/toLbl"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text=""
+
+                app:layout_constraintEnd_toEndOf="@+id/fromLbl"
+                app:layout_constraintStart_toStartOf="@+id/fromLbl"
+                app:layout_constraintTop_toBottomOf="@+id/fromLbl" />
+
+            <EditText
+                android:id="@+id/fromLbl"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text=""
+
+                app:layout_constraintEnd_toEndOf="@+id/typeLbl"
+                app:layout_constraintStart_toStartOf="@+id/typeLbl"
+                app:layout_constraintTop_toBottomOf="@+id/typeLbl" />
+
+            <TextView
+                android:id="@+id/nameLable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+
+                android:text="TextView"
+
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Time"
+
+                app:layout_constraintBottom_toBottomOf="@+id/timeLbl"
+                app:layout_constraintStart_toStartOf="@+id/nameLable"
+                app:layout_constraintTop_toTopOf="@+id/timeLbl" />
+
+            <TextView
+                android:id="@+id/to"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="44dp"
+
+                android:text="To"
+
+                app:layout_constraintBottom_toBottomOf="@+id/toLbl"
+                app:layout_constraintEnd_toStartOf="@+id/toLbl"
+                app:layout_constraintStart_toStartOf="@+id/from"
+                app:layout_constraintTop_toTopOf="@+id/toLbl" />
+
+            <TextView
+                android:id="@+id/from"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="27dp"
+
+                android:text="From"
+
+                app:layout_constraintBottom_toBottomOf="@+id/fromLbl"
+                app:layout_constraintEnd_toStartOf="@+id/fromLbl"
+                app:layout_constraintStart_toStartOf="@+id/date"
+                app:layout_constraintTop_toTopOf="@+id/fromLbl" />
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="29dp"
+
+                android:text="Date"
+
+                app:layout_constraintBottom_toBottomOf="@+id/typeLbl"
+                app:layout_constraintEnd_toStartOf="@+id/typeLbl"
+                app:layout_constraintStart_toStartOf="@+id/time"
+                app:layout_constraintTop_toTopOf="@+id/typeLbl" />
+
+
+
+            <Button
+                android:id="@+id/startBtn"
+                android:layout_width="76dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="#6bdbdb"
+                android:freezesText="false"
+                android:text="Start"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textColorHighlight="#6bdbdb"
+                android:textColorHint="#6bdbdb"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toLbl"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <Button
+                android:id="@+id/notesBtn"
+                android:layout_width="80dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="80dp"
+                app:layout_constraintBottom_toBottomOf="@+id/startBtn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/startBtn"
+                app:layout_constraintTop_toTopOf="@+id/startBtn"
+                app:layout_constraintVertical_bias="0.0"
+                tools:ignore="SpeakableTextPresentCheck"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textColorHighlight="#6bdbdb"
+                android:textColorHint="#6bdbdb"
+                android:textSize="12sp"
+                android:text="Add Note"
+                android:backgroundTint="#6bdbdb"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

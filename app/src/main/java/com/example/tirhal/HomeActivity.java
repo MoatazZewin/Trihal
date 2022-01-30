@@ -18,7 +18,7 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        bt_log = findViewById(R.id.btn_logout);
+
         mAuth = FirebaseAuth.getInstance();
         bt_log.setOnClickListener(new View.OnClickListener() {
             @Override

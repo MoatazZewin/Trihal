@@ -18,18 +18,21 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
 public class RegistrationActivity extends AppCompatActivity {
     Button btn_register;
     EditText ed_name, ed_email, ed_pass, ed_phone;
     FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
         changeStatusBarColor();
         initComponents();
+
         mAuth = FirebaseAuth.getInstance();
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,5 +99,6 @@ public class RegistrationActivity extends AppCompatActivity {
         startActivity(new Intent(this, FragmentMainActivity.class));
         overridePendingTransition(R.anim.slide_in_left, android.R.anim.slide_out_right);
     }
+
 
 }

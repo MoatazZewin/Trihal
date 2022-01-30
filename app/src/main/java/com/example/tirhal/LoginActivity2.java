@@ -16,13 +16,15 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
 public class LoginActivity2 extends AppCompatActivity {
     EditText ed_email_login, ed_pass_login;
     Button btn_log;
     FirebaseAuth mAuth;
-
+    String UserID ;
+    private FirebaseAuth.AuthStateListener authStateListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +38,18 @@ public class LoginActivity2 extends AppCompatActivity {
         ed_pass_login = findViewById(R.id.edTxtPasswordregi);
         btn_log = findViewById(R.id.btn_login);
         mAuth = FirebaseAuth.getInstance();
+        authStateListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if(user!= null){
+                    UserID = FirebaseAuth.getInstance().getCurrentUser().getUid() ;
+                    Intent intent = new Intent(getApplicationContext(), FragmentMainActivity.class);
+                    intent.putExtra("userID",UserID );
+                    startActivity(intent);
+                }
+            }
+        };
         btn_log.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -83,6 +97,17 @@ public class LoginActivity2 extends AppCompatActivity {
     {
         startActivity(new Intent(this, FragmentMainActivity.class));
 
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(authStateListener);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mAuth.removeAuthStateListener(authStateListener);
     }
 
 

@@ -8,6 +8,12 @@
         <entry key="..\:/Users/20111/AndroidStudioProjects/Tirhal/app/src/main/res/drawable/ic_add.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/20111/AndroidStudioProjects/Tirhal/app/src/main/res/drawable/ic_add_img.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/20111/AndroidStudioProjects/Tirhal/app/src/main/res/drawable/ic_back_img.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/20111/AndroidStudioProjects/Tirhal/app/src/main/res/drawable/ic_baseline_aout_24.xml" value="0.2203125" />
+        <entry key="..\:/Users/20111/AndroidStudioProjects/Tirhal/app/src/main/res/drawable/ic_baseline_article_24.xml" value="0.2203125" />
+        <entry key="..\:/Users/20111/AndroidStudioProjects/Tirhal/app/src/main/res/drawable/ic_baseline_face_24.xml" value="0.2203125" />
+        <entry key="..\:/Users/20111/AndroidStudioProjects/Tirhal/app/src/main/res/drawable/ic_baseline_help_24.xml" value="0.2203125" />
+        <entry key="..\:/Users/20111/AndroidStudioProjects/Tirhal/app/src/main/res/drawable/ic_baseline_people_outline_24.xml" value="0.2203125" />
+        <entry key="..\:/Users/20111/AndroidStudioProjects/Tirhal/app/src/main/res/drawable/ic_baseline_sync_24.xml" value="0.2203125" />
         <entry key="..\:/Users/20111/AndroidStudioProjects/Tirhal/app/src/main/res/drawable/ic_calendar.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/20111/AndroidStudioProjects/Tirhal/app/src/main/res/drawable/ic_clock.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/20111/AndroidStudioProjects/Tirhal/app/src/main/res/drawable/ic_diary.xml" value="0.20416666666666666" />
@@ -29,6 +35,8 @@
         <entry key="..\:/Users/20111/AndroidStudioProjects/Tirhal/app/src/main/res/layout/fragment_add_notes.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/20111/AndroidStudioProjects/Tirhal/app/src/main/res/layout/fragment_add_trip.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/20111/AndroidStudioProjects/Tirhal/app/src/main/res/layout/fragment_add_trip_fragments.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/20111/AndroidStudioProjects/Tirhal/app/src/main/res/layout/fragment_history.xml" value="0.18854166666666666" />
+        <entry key="..\:/Users/20111/AndroidStudioProjects/Tirhal/app/src/main/res/layout/fragment_profile.xml" value="0.37652439024390244" />
         <entry key="..\:/Users/20111/AndroidStudioProjects/Tirhal/app/src/main/res/layout/fragment_upcoming.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/20111/AndroidStudioProjects/Tirhal/app/src/main/res/layout/note_row.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/20111/AndroidStudioProjects/Tirhal/app/src/main/res/layout/upcoming_item.xml" value="0.18802083333333333" />

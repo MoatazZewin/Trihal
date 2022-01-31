@@ -17,6 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".AddTripActivity"
+            android:exported="false" />
+        <activity
             android:name=".FragmentMainActivity"
             android:exported="false" />
         <activity
@@ -36,7 +39,6 @@
             android:exported="true"
 
             android:theme="@style/AppTheme.NoActionBar">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

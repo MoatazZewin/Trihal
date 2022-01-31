@@ -16,6 +16,10 @@ public class FragmentMainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_mainfragment);
         BottomNavigationView bottomNav = findViewById(R.id.botton_navigation);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new UpComingFragment()).commit();
+
+
+
 
     }
 
@@ -23,7 +27,7 @@ public class FragmentMainActivity extends AppCompatActivity {
             new BottomNavigationView.OnNavigationItemSelectedListener(){
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item){
-                    Fragment selectedFragment = null;
+                    Fragment selectedFragment =new UpComingFragment();
 
                     switch (item.getItemId()){
                         case R.id.nav_upcoming:

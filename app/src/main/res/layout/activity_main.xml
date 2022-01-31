@@ -21,34 +21,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="425dp"
-        android:layout_height="339dp"
-        android:fontFamily="@font/montserrat"
-        android:text="Tirhal"
-        android:textAlignment="center"
-        android:textSize="100sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.61" />
+    <ImageView
+        android:layout_width="394dp"
+        android:layout_height="201dp"
+        android:src="@drawable/logoyellow"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="524dp" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="642dp"
-        android:layout_height="100dp"
-        android:fontFamily="@font/montserrat"
-        android:text="It's Travel Time "
-        android:textAlignment="gravity"
-        android:textSize="24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,6 +25,7 @@ public class RegistrationActivity extends AppCompatActivity {
     Button btn_register;
     EditText ed_name, ed_email, ed_pass, ed_phone;
     FirebaseAuth mAuth;
+    public static String userName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +38,14 @@ public class RegistrationActivity extends AppCompatActivity {
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                createUser();
+                if(ed_pass.getText().toString().equals(ed_phone.getText().toString()))
+                {
+                    createUser();
+                }else{
+                    Toast.makeText(RegistrationActivity.this, "please enter password again", Toast.LENGTH_SHORT).show();
+                }
+
+
             }
         });
 
@@ -50,6 +58,7 @@ public class RegistrationActivity extends AppCompatActivity {
     {
         String email = ed_email.getText().toString();
         String pass = ed_pass.getText().toString();
+        String name = ed_name.getText().toString();
         if(TextUtils.isEmpty(email))
         {
             ed_email.setError("email must be written");
@@ -58,7 +67,12 @@ public class RegistrationActivity extends AppCompatActivity {
         {
             ed_pass.setError("pass must be written");
             ed_pass.requestFocus();
-        }else {
+        }else if(TextUtils.isEmpty(name))
+        {
+            ed_name.setError("name must be written");
+            ed_name.requestFocus();
+        } else {
+            userName = name;
             mAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {

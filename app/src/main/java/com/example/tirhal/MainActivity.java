@@ -25,12 +25,12 @@ public class MainActivity extends AppCompatActivity {
         topAnim = AnimationUtils.loadAnimation(this ,R.anim.top_animation);
         buttonAnim = AnimationUtils.loadAnimation(this ,R.anim.button_animation);
 
-        image = findViewById(R.id.imageView);
-        logo = findViewById(R.id.textView);
-        slogan = findViewById(R.id.textView2);
+        image = findViewById(R.id.trihal);
+//        logo = findViewById(R.id.textView);
+//        slogan = findViewById(R.id.textView2);
         image.setAnimation(topAnim);
-        logo.setAnimation(buttonAnim);
-        slogan.setAnimation(buttonAnim);
+//        logo.setAnimation(buttonAnim);
+//        slogan.setAnimation(buttonAnim);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

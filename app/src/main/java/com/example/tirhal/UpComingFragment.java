@@ -1,6 +1,7 @@
 package com.example.tirhal;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,12 +21,14 @@ import java.util.List;
 public class UpComingFragment extends Fragment {
     RecyclerView recyclerView ;
     UpcomingRecyclerAdapter UpComingRecyclerAdapter;
-    List<ModelHistory> UpcomingList;
+//    List<ModelHistory> UpcomingList;
+      private List tripsList = new ArrayList<Trip>();
     FloatingActionButton floatingBtnAdd;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        new LoadRoomData().execute();
         floatingBtnAdd = view.findViewById(R.id.btn_floating);
         initializeAddTrip();
 
@@ -36,27 +39,27 @@ public class UpComingFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle saveInstanceState ){
         View view =  inflater.inflate(R.layout.fragment_upcoming, container,false);
         recyclerView = view.findViewById(R.id.recycler_view_Upcoming);
-        UpcomingList = createListForAdapter();
-        UpComingRecyclerAdapter = new UpcomingRecyclerAdapter(UpcomingList);
+//        UpcomingList = createListForAdapter();
+        UpComingRecyclerAdapter = new UpcomingRecyclerAdapter(getContext(),tripsList,getActivity());
         recyclerView.setHasFixedSize(true);
-        recyclerView.setAdapter(UpComingRecyclerAdapter);
+       recyclerView.setAdapter(UpComingRecyclerAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(container.getContext(),RecyclerView.VERTICAL , false));
 
 
         return  view ;
     }
-    private List<ModelHistory> createListForAdapter()
-    {
-        List <ModelHistory> lists = new ArrayList<>();
-        for (int i = 0 ; i<10 ; i++)
-        {
-            lists.add(new ModelHistory("Friday",
-                    "Family Trip " ,
-                    "Cairo" ,
-                    "Giza"));
-        }
-        return lists;
-    }
+//    private List<ModelHistory> createListForAdapter()
+//    {
+//        List <ModelHistory> lists = new ArrayList<>();
+//        for (int i = 0 ; i<10 ; i++)
+//        {
+//            lists.add(new ModelHistory("Friday",
+//                    "Family Trip " ,
+//                    "Cairo" ,
+//                    "Giza"));
+//        }
+//        return lists;
+//    }
     public void initializeAddTrip() {
         floatingBtnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,6 +75,26 @@ public class UpComingFragment extends Fragment {
                 startActivity(intent);
             }
         });
+    }
+    private class LoadRoomData extends AsyncTask<Void, Void, List<Trip>> {
+
+        @Override
+        protected List<Trip> doInBackground(Void... voids) {
+            return FragmentMainActivity.database.tripDAO().selectUpcomingTrip(FragmentMainActivity.fireBaseUseerId, "upcoming");
+        }
+
+        @Override
+        protected void onPostExecute(List<Trip> trips) {
+            super.onPostExecute(trips);
+            tripsList = trips;
+            if (tripsList.isEmpty()) {
+
+            } else {
+
+            }
+            UpComingRecyclerAdapter = new UpcomingRecyclerAdapter(getContext(), tripsList,getActivity());
+            recyclerView.setAdapter(UpComingRecyclerAdapter);
+        }
     }
 
 }

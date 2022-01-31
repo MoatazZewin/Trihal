@@ -1,9 +1,11 @@
 package com.example.tirhal;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,12 +13,22 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
 
 
 public class LoginActivity2 extends AppCompatActivity {
@@ -24,6 +36,11 @@ public class LoginActivity2 extends AppCompatActivity {
     Button btn_log;
     FirebaseAuth mAuth;
     String UserID ;
+    List<Trip> tripsl;
+    private FirebaseUser user;
+    public static final String TAG = "Login";
+    private TripDatabase database;
+    private   DatabaseReference databaseRef;
     private FirebaseAuth.AuthStateListener authStateListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +73,9 @@ public class LoginActivity2 extends AppCompatActivity {
                 loginUser();
             }
         });
+        database = Room.databaseBuilder(this, TripDatabase.class, "tripDB").build();
+        databaseRef = FirebaseDatabase.getInstance().getReference();
+        user = mAuth.getCurrentUser();
 
 
     }//end onCreate method
@@ -108,6 +128,94 @@ public class LoginActivity2 extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         mAuth.removeAuthStateListener(authStateListener);
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.i(Constants.LOG_TAG, "onActivityResult");
+        if (requestCode == Constants.AUTH_REQUEST_CODE) {
+            Log.i(Constants.LOG_TAG, "Auth request code is correct");
+            if (resultCode == RESULT_OK) {
+                Log.i(Constants.LOG_TAG, "signed in successfully");
+                //check room isEmpty
+                new check().execute();
+                readOnFireBase();
+
+            } else {
+                Log.i(Constants.LOG_TAG, "not signed in successfully");
+                finish();
+            }
+        }
+    }
+    private void readOnFireBase() {
+
+        tripsl=new ArrayList<>();
+        databaseRef.child("TripReminder").child("userID").child(FirebaseAuth.getInstance().getUid()).child("trips").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    Log.i(TAG, "onDataChange: ");
+                    //     Trip[] tripList = new Trip[(int) dataSnapshot.getChildrenCount()];
+                    int i = 0;
+                    for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                        // TODO: handle the post
+                        Trip trip = postSnapshot.getValue(Trip.class);
+                        //           tripList[i] = trip;
+                        tripsl.add(trip);
+                        i++;
+                    }
+                    //         Log.i(TAG, "onDataChange: " + tripList.length);
+                }
+                insertTripsINRoom(tripsl);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
+                // ...
+            }
+        });
+    }
+    public void insertTripsINRoom(List<Trip> trips) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Log.i(TAG, "insertTripsINRoom: " + trips.size());
+                for (int i = 0; i < trips.size(); i++) {
+                    if(Calendar.getInstance().getTimeInMillis() > trips.get(i).getCalendar() && trips.get(i).getTripStatus().equals(Constants.UPCOMING_TRIP_STATUS)){
+                        trips.get(i).setTripStatus(Constants.MISSED_TRIP_STATUS);
+                    }
+                    Trip trip = new Trip(trips.get(i).getUserID(), trips.get(i).getTripName(), trips.get(i).getStartPoint(),
+                            trips.get(i).getStartPointLat(), trips.get(i).getStartPointLong(), trips.get(i).getEndPoint(),
+                            trips.get(i).getEndPointLat(), trips.get(i).getEndPointLong(), trips.get(i).getDate(),
+                            trips.get(i).getTime(), trips.get(i).getTripImg(), trips.get(i).getTripStatus(),
+                            trips.get(i).getCalendar(), trips.get(i).getNotes());
+
+
+                    database.tripDAO().insert(trip);
+//                    if(trips.get(i).getTripStatus().equals(Constants.UPCOMING_TRIP_STATUS)){
+//                        initAlarm(trips.get(i));
+//                    }
+                    Log.i(TAG, "insertTripsINRoom: " + trip.getTripName());
+                }
+            }
+        }).start();
+    }
+    private class check extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected Void doInBackground(Void... voids) {
+            database.tripDAO().clear();
+            //    readOnFireBase();
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            startActivity(new Intent(LoginActivity2.this, FragmentMainActivity.class));
+            finish();
+        }
     }
 
 

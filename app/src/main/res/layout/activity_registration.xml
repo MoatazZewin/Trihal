@@ -46,14 +46,24 @@
 
     -<com.google.android.material.textfield.TextInputLayout android:layout_marginTop="@dimen/loginViewsMargin" style="@style/parent" android:id="@+id/textInputMobile">
 
-    <EditText style="@style/modifiedEditText" android:id="@+id/editTextMobile" android:maxLines="1" android:inputType="phone" android:hint="Mobile Number"/>
+    <EditText
+        android:id="@+id/editTextMobile"
+        style="@style/modifiedEditText"
+        android:hint="@string/login_password_hint"
+        android:inputType="textPassword"
+        android:maxLines="1" />
 
 </com.google.android.material.textfield.TextInputLayout>
 
 
     -<com.google.android.material.textfield.TextInputLayout android:layout_marginTop="@dimen/loginViewsMargin" style="@style/parent" android:id="@+id/textInputPassword">
 
-    <EditText style="@style/modifiedEditText" android:id="@+id/edTxtPasswordregi" android:maxLines="1" android:inputType="textPassword" android:hint="@string/login_password_hint"/>
+    <EditText
+        android:id="@+id/edTxtPasswordregi"
+        style="@style/modifiedEditText"
+        android:hint="Confirm Passward"
+        android:inputType="textPassword"
+        android:maxLines="1" />
 
 </com.google.android.material.textfield.TextInputLayout>
 

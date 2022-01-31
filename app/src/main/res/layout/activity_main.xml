@@ -23,10 +23,12 @@
 
     <ImageView
         android:layout_width="394dp"
+        android:id="@+id/trihal"
         android:layout_height="201dp"
         android:src="@drawable/logoyellow"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="524dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

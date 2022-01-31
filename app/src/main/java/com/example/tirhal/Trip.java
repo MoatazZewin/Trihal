@@ -1,29 +1,31 @@
 package com.example.tirhal;
 
-
-
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+import androidx.room.TypeConverters;
 
 import java.util.ArrayList;
 
+@Entity(tableName = "Trip")
+public class Trip  {
 
-public class Trip {
-
-
+    @NonNull
     private String userID;
 
-
-
+    @NonNull
+    @PrimaryKey(autoGenerate = true)
     private int id;
 
-
+    @NonNull
     private String tripName;
-
+    @NonNull
     private String startPoint;
-
+    @NonNull
     private double startPointLat;
-
+    @NonNull
     private double startPointLong;
-
+    @NonNull
     private String endPoint;
 
     public double getStartPointLat() {
@@ -42,28 +44,28 @@ public class Trip {
         this.startPointLong = startPointLong;
     }
 
-
+    @NonNull
     private double endPointLat;
-
+    @NonNull
     private double endPointLong;
-
+    @NonNull
     private String date;
-
+    @NonNull
     private String time;
-
+    @NonNull
     private int tripImg;
-
+    @NonNull
     private String tripStatus;
-
+    @TypeConverters(DataConverter.class)
     private ArrayList<String> notes;
-
+    @NonNull
     private long calendar;
 
 
 
-    public Trip( String userID,  String tripName,  String startPoint,  double startPointLat,  double startPointLong,
-                 String endPoint,  double endPointLat,  double endPointLong,
-                String date,  String time,  int tripImg, String tripStatus,  long calendar, ArrayList<String> notes) {
+    public Trip(@NonNull String userID, @NonNull String tripName, @NonNull String startPoint,@NonNull double startPointLat, @NonNull double startPointLong,
+                @NonNull String endPoint, @NonNull double endPointLat, @NonNull double endPointLong,
+                @NonNull String date, @NonNull String time, @NonNull int tripImg, String tripStatus, @NonNull long calendar,ArrayList<String> notes) {
         this.userID = userID;
         this.calendar = calendar;
         this.id = id;

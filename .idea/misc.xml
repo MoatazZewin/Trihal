@@ -69,6 +69,21 @@
         <entry key="..\:/Users/Lap Shop/AndroidStudioProjects/Tirhal/app/src/main/res/drawable/button_background_blue.xml" value="0.2203125" />
         <entry key="..\:/Users/Lap Shop/AndroidStudioProjects/Tirhal/app/src/main/res/layout/activity_login2.xml" value="0.33" />
         <entry key="..\:/Users/Lap Shop/AndroidStudioProjects/Tirhal/app/src/main/res/layout/activity_registration.xml" value="0.1" />
+        <entry key="..\:/git/Trihal/app/src/main/res/drawable/button_background_blue.xml" value="0.2203125" />
+        <entry key="..\:/git/Trihal/app/src/main/res/layout/activity_add_trip.xml" value="0.20416666666666666" />
+        <entry key="..\:/git/Trihal/app/src/main/res/layout/activity_home.xml" value="0.16168478260869565" />
+        <entry key="..\:/git/Trihal/app/src/main/res/layout/activity_login2.xml" value="0.25" />
+        <entry key="..\:/git/Trihal/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/git/Trihal/app/src/main/res/layout/activity_mainfragment.xml" value="0.16168478260869565" />
+        <entry key="..\:/git/Trihal/app/src/main/res/layout/activity_registration.xml" value="0.2" />
+        <entry key="..\:/git/Trihal/app/src/main/res/layout/fragment_add_notes.xml" value="0.20416666666666666" />
+        <entry key="..\:/git/Trihal/app/src/main/res/layout/fragment_history.xml" value="0.16168478260869565" />
+        <entry key="..\:/git/Trihal/app/src/main/res/layout/fragment_profile.xml" value="0.33" />
+        <entry key="..\:/git/Trihal/app/src/main/res/layout/fragment_sync.xml" value="0.20416666666666666" />
+        <entry key="..\:/git/Trihal/app/src/main/res/layout/fragment_upcoming.xml" value="0.16168478260869565" />
+        <entry key="..\:/git/Trihal/app/src/main/res/layout/history_item.xml" value="0.20416666666666666" />
+        <entry key="..\:/git/Trihal/app/src/main/res/layout/note_row.xml" value="0.20416666666666666" />
+        <entry key="..\:/git/Trihal/app/src/main/res/layout/upcoming_item.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>

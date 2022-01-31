@@ -12,7 +12,14 @@
 
     <TextView android:textColor="@color/whiteTextColor" android:text="Here’s\nyour first\nstep with \nus! " android:layout_centerVertical="true" android:layout_alignParentLeft="true" style="@style/viewParent.headerText.NoMode"/>
 
-    <ImageView android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_alignParentTop="true" android:src="@drawable/ic_login_hero" android:layout_alignParentRight="true"/>
+    <ImageView
+        android:layout_width="255dp"
+        android:layout_height="160dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="-7dp"
+        android:layout_marginRight="-28dp"
+        android:src="@drawable/logowhite" />
 
 </RelativeLayout>
 

@@ -93,6 +93,7 @@ public class ProfileFragment extends Fragment {
         txtEmail =view.findViewById(R.id.email_txt);
         txtEmail.setText(LoginActivity2.userEmail);
         txtName.setText(LoginActivity2.useName2);
+
         initializeLogOut();
         getTripsReport();
         intializeAboutUs();

@@ -154,7 +154,7 @@ public class LoginActivity2 extends AppCompatActivity {
     private void readOnFireBase() {
 
         tripsl=new ArrayList<>();
-        databaseRef.child("TripReminder").child("userID").child(FirebaseAuth.getInstance().getUid()).child("trips").addListenerForSingleValueEvent(new ValueEventListener() {
+        databaseRef.child("Tirhal").child("userID").child(FirebaseAuth.getInstance().getUid()).child("trips").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {

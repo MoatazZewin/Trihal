@@ -574,13 +574,15 @@ public class FragmentAddTrip extends Fragment {
                                             FragmentMainActivity.database.tripDAO().EditTrip(AddTripActivity.ID, editTextTripName.getText().toString(), editTextStartPoint.getText().toString(),
                                                     editTextEndPoint.getText().toString(), selectedTrip.getEndPointLat(),
                                                     selectedTrip.getEndPointLong(), textViewDate.getText().toString(), textViewTime.getText().toString(),calenderNormal.getTimeInMillis());
-                                            getActivity().finish(); //added by amr
+                                            getActivity().finish();
+
+
                                             Log.i(TAG, "run: place end null");
                                         }else {
                                             FragmentMainActivity.database.tripDAO().EditTrip(AddTripActivity.ID, editTextTripName.getText().toString(), editTextStartPoint.getText().toString(),
                                                     editTextEndPoint.getText().toString(), placeEndPoint.getLatLng().latitude
                                                     , placeEndPoint.getLatLng().longitude, textViewDate.getText().toString(), textViewTime.getText().toString(),calenderNormal.getTimeInMillis());
-                                            getActivity().finish(); //added by amr
+                                            getActivity().finish();
                                             Log.i(TAG, "run: place end  not null");
                                         }
                                     }
@@ -603,7 +605,7 @@ public class FragmentAddTrip extends Fragment {
                                             Trip tripRound = new Trip(FragmentMainActivity.fireBaseUseerId, editTextTripName.getText().toString() + " Round", placeEndPoint.getName(), placeEndPoint.getLatLng().latitude, placeEndPoint.getLatLng().longitude,
                                                     placeStartPoint.getName(), placeStartPoint.getLatLng().latitude, placeStartPoint.getLatLng().longitude,
                                                     textViewDate2.getText().toString(), textViewTime2.getText().toString(), R.drawable.preview,
-                                                    "upcoming", myPref.getLong("CalendarRound", 0), resultNotes);
+                                                    "upcoming", calendarRound.getTimeInMillis(), null);
                                             insertRoom(trip);
                                             insertRoom(tripRound);
                                             getActivity().finish();
@@ -625,7 +627,6 @@ public class FragmentAddTrip extends Fragment {
                                         placeStartPoint.getLatLng().longitude, placeEndPoint.getName(), placeEndPoint.getLatLng().latitude, placeEndPoint.getLatLng().longitude,
                                         textViewDate.getText().toString(), textViewTime.getText().toString(), R.drawable.preview,
                                         "upcoming", calenderNormal.getTimeInMillis(), null);
-
                                 if (isRound) {
                                     if (!TextUtils.isEmpty(textViewDate2.getText())) {
                                         textViewDate2.setError(null);

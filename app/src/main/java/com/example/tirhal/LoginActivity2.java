@@ -34,6 +34,8 @@ import java.util.List;
 public class LoginActivity2 extends AppCompatActivity {
     EditText ed_email_login, ed_pass_login;
     Button btn_log;
+    public static String userEmail="";
+    public static String useName2;
     FirebaseAuth mAuth;
     String UserID ;
     List<Trip> tripsl;
@@ -55,11 +57,13 @@ public class LoginActivity2 extends AppCompatActivity {
         ed_pass_login = findViewById(R.id.edTxtPasswordregi);
         btn_log = findViewById(R.id.btn_login);
         mAuth = FirebaseAuth.getInstance();
+
         authStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if(user!= null){
+                    userEmail = mAuth.getCurrentUser().getEmail();
                     UserID = FirebaseAuth.getInstance().getCurrentUser().getUid() ;
                     Intent intent = new Intent(getApplicationContext(), FragmentMainActivity.class);
                     intent.putExtra("userID",UserID );

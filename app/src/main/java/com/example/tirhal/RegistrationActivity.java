@@ -35,6 +35,7 @@ public class RegistrationActivity extends AppCompatActivity {
         initComponents();
 
         mAuth = FirebaseAuth.getInstance();
+
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,7 +73,7 @@ public class RegistrationActivity extends AppCompatActivity {
             ed_name.setError("name must be written");
             ed_name.requestFocus();
         } else {
-            userName = name;
+            LoginActivity2.useName2 = name;
             mAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {

@@ -26,7 +26,7 @@ public class FragmentMainActivity extends AppCompatActivity {
         bottomNav.setOnNavigationItemSelectedListener(navListener);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new UpComingFragment()).commit();
         fireBaseUseerId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        fireBaseUserName=RegistrationActivity.userName;
+        fireBaseUserName=FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
         database = Room.databaseBuilder(this, TripDatabase.class, "tripDB").build();
 
 
@@ -34,6 +34,12 @@ public class FragmentMainActivity extends AppCompatActivity {
 
 
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new UpComingFragment()).commit();
     }
 
     private  BottomNavigationView.OnNavigationItemSelectedListener navListener =

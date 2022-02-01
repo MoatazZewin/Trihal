@@ -23,6 +23,7 @@ import androidx.fragment.app.Fragment;
 import androidx.room.Room;
 
 
+import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -77,6 +78,7 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        new GetCountTrips().execute();
         imgLogout = view.findViewById(R.id.imgLogout);
         imgSync = view.findViewById(R.id.imgSync);
         imgHowToUse = view.findViewById(R.id.imgHowToUse);
@@ -89,6 +91,8 @@ public class ProfileFragment extends Fragment {
         txtTripsReport = view.findViewById(R.id.txtTripsReport);
         txtName = view.findViewById(R.id.name_txt);
         txtEmail =view.findViewById(R.id.email_txt);
+        txtEmail.setText(LoginActivity2.userEmail);
+        txtName.setText(LoginActivity2.useName2);
         initializeLogOut();
         getTripsReport();
         intializeAboutUs();
@@ -118,12 +122,18 @@ public class ProfileFragment extends Fragment {
         imgLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mAuth.signOut();
-                new UnregisterData();
-                new readData().execute();
-                writeOnFireBase(trips);
-                startActivity(new Intent(getContext(), LoginActivity2.class));
-                getActivity().finish();
+                AuthUI.getInstance().signOut(getContext()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        mAuth.signOut();
+                        new UnregisterData().execute();
+                        new readData().execute();
+                        writeOnFireBase(trips);
+                        startActivity(new Intent(getContext(), LoginActivity2.class));
+                        getActivity().finish();
+                    }
+                });
+//                getActivity().finish();
 
             }
         });
@@ -131,12 +141,17 @@ public class ProfileFragment extends Fragment {
         txtLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mAuth.signOut();
-                new UnregisterData();
-                new readData().execute();
-                writeOnFireBase(trips);
-                startActivity(new Intent(getContext(), LoginActivity2.class));
-                getActivity().finish();
+                AuthUI.getInstance().signOut(getContext()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        mAuth.signOut();
+                        new UnregisterData().execute();
+                        new readData().execute();
+                        writeOnFireBase(trips);
+                        startActivity(new Intent(getContext(), LoginActivity2.class));
+                        getActivity().finish();
+                    }
+                });
             }
         });
     }
@@ -159,7 +174,7 @@ public class ProfileFragment extends Fragment {
     public void writeOnFireBase(List<Trip>trips){
         if(isNetworkAvailable(getContext())) {
             Trip trip;
-            databaseReference.child("TripReminder").child("userID").child(fireBaseUseerId).child("trips").removeValue();
+            databaseReference.child("Tirhal").child("userID").child(fireBaseUseerId).child("trips").removeValue();
 
             for (int i = 0; i < trips.size(); i++) {
                 trip = new Trip(trips.get(i).getUserID(),trips.get(i).getTripName(),trips.get(i).getStartPoint(),
@@ -168,7 +183,7 @@ public class ProfileFragment extends Fragment {
                         trips.get(i).getTime(),trips.get(i).getTripImg(),trips.get(i).getTripStatus(),
                         trips.get(i).getCalendar(), trips.get(i).getNotes());
                 Log.i(TAG, "writeOnFireBase: " + trip.getTripName() + trip.getId() + trip.getStartPoint()+trip.getNotes());
-                databaseReference.child("TripReminder").child("userID").child(fireBaseUseerId).child("trips").push().setValue(trip).addOnCompleteListener(new OnCompleteListener<Void>() {
+                databaseReference.child("Tirhal").child("userID").child(fireBaseUseerId).child("trips").push().setValue(trip).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         task.addOnSuccessListener(new OnSuccessListener<Void>() {

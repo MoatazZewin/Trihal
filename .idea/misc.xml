@@ -14,6 +14,7 @@
         <entry key="..\:/Users/20111/AndroidStudioProjects/Tirhal/app/src/main/res/drawable/ic_baseline_article_24.xml" value="0.2203125" />
         <entry key="..\:/Users/20111/AndroidStudioProjects/Tirhal/app/src/main/res/drawable/ic_baseline_face_24.xml" value="0.2203125" />
         <entry key="..\:/Users/20111/AndroidStudioProjects/Tirhal/app/src/main/res/drawable/ic_baseline_help_24.xml" value="0.2203125" />
+        <entry key="..\:/Users/20111/AndroidStudioProjects/Tirhal/app/src/main/res/drawable/ic_baseline_hourglass_bottom_24.xml" value="0.2046875" />
         <entry key="..\:/Users/20111/AndroidStudioProjects/Tirhal/app/src/main/res/drawable/ic_baseline_note_add_24.xml" value="0.19375" />
         <entry key="..\:/Users/20111/AndroidStudioProjects/Tirhal/app/src/main/res/drawable/ic_baseline_people_outline_24.xml" value="0.2203125" />
         <entry key="..\:/Users/20111/AndroidStudioProjects/Tirhal/app/src/main/res/drawable/ic_baseline_south_24.xml" value="0.19375" />
@@ -46,8 +47,11 @@
         <entry key="..\:/Users/20111/AndroidStudioProjects/Tirhal/app/src/main/res/layout/fragment_history.xml" value="0.18854166666666666" />
         <entry key="..\:/Users/20111/AndroidStudioProjects/Tirhal/app/src/main/res/layout/fragment_profile.xml" value="0.37652439024390244" />
         <entry key="..\:/Users/20111/AndroidStudioProjects/Tirhal/app/src/main/res/layout/fragment_upcoming.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/20111/AndroidStudioProjects/Tirhal/app/src/main/res/layout/history_item.xml" value="0.18854166666666666" />
         <entry key="..\:/Users/20111/AndroidStudioProjects/Tirhal/app/src/main/res/layout/layout_dialog_warning.xml" value="0.5" />
+        <entry key="..\:/Users/20111/AndroidStudioProjects/Tirhal/app/src/main/res/layout/layout_permission_dialog.xml" value="0.18854166666666666" />
         <entry key="..\:/Users/20111/AndroidStudioProjects/Tirhal/app/src/main/res/layout/note_row.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/20111/AndroidStudioProjects/Tirhal/app/src/main/res/layout/trip_history_item.xml" value="0.18854166666666666" />
         <entry key="..\:/Users/20111/AndroidStudioProjects/Tirhal/app/src/main/res/layout/trip_upcoming_item.xml" value="0.5" />
         <entry key="..\:/Users/20111/AndroidStudioProjects/Tirhal/app/src/main/res/layout/upcoming_item.xml" value="0.33" />
         <entry key="..\:/Users/DELL/Documents/GitHub/Trihal/app/src/main/res/drawable-anydpi/calender.xml" value="0.1" />

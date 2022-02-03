@@ -242,6 +242,8 @@ public class ProfileFragment extends Fragment {
             trips=tripsl;
         }
     }
+
+
     private void openDaialog(String message) {
         androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(getContext(), R.style.AlertDialogTheme);
         View view = LayoutInflater.from(getContext()).inflate(R.layout.layout_dialog_warning, (ConstraintLayout) getActivity().findViewById(R.id.dialogLayoutContainer));
